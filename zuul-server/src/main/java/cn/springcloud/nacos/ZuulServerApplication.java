@@ -1,4 +1,4 @@
-package cn.springcloud.book;
+package cn.springcloud.nacos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

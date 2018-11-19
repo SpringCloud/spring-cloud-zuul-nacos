@@ -1,4 +1,4 @@
-package cn.springcloud.book.entity;
+package cn.springcloud.nacos.entity;
 
 public class ZuulRouteEntity {
 	/**

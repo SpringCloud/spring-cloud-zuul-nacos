@@ -1,23 +1,18 @@
-package cn.springcloud.book.dao;
+package cn.springcloud.nacos.biz;
 
 import java.util.*;
-import java.util.concurrent.Executor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
-import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.event.HeartbeatMonitor;
-import org.springframework.cloud.netflix.zuul.ZuulServerAutoConfiguration;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties.ZuulRoute;
 import org.springframework.stereotype.Component;
 
-import cn.springcloud.book.entity.ZuulRouteEntity;
+import cn.springcloud.nacos.entity.ZuulRouteEntity;
 
 @Component
 public class PropertiesAssemble{
@@ -48,17 +43,17 @@ public class PropertiesAssemble{
 			String content = configService.getConfig(dataId, group, 5000);
 			System.out.println("从Nacos返回的配置：" + content);
 			//注册Nacos配置更新监听器
-            configService.addListener(dataId, group, new Listener()  {
-                @Override
-                public void receiveConfigInfo(String configInfo) {
-                    System.out.println("Nacos更新了！");
-
-                }
-                @Override
-                public Executor getExecutor() {
-                    return null;
-                }
-            });
+//            configService.addListener(dataId, group, new Listener()  {
+//                @Override
+//                public void receiveConfigInfo(String configInfo) {
+//                    System.out.println("Nacos更新了！");
+//
+//                }
+//                @Override
+//                public Executor getExecutor() {
+//                    return null;
+//                }
+//            });
 			return JSONObject.parseArray(content, ZuulRouteEntity.class);
 		} catch (NacosException e) {
 			e.printStackTrace();

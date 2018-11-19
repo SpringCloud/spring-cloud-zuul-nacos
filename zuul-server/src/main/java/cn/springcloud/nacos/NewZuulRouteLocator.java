@@ -1,9 +1,9 @@
-package cn.springcloud.book;
+package cn.springcloud.nacos;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import cn.springcloud.book.dao.PropertiesAssemble;
+import cn.springcloud.nacos.biz.PropertiesAssemble;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.RefreshableRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator;
